@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chúc Mừng Năm Mới 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at top, #1a1a40, #000);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.container{
+    text-align:center;
+    animation: appear 2s ease forwards;
+}
+
+@keyframes appear{
+    from{
+        transform:translateY(120px) scale(0.6);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+.title{
+    font-size:68px;
+    font-weight:900;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    text-shadow:
+        0 5px 0 #ff0066,
+        0 10px 20px rgba(255,0,102,0.6),
+        0 0 50px #ff0066;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{filter:brightness(1);}
+    to{filter:brightness(1.4);}
+}
+
+.name{
+    margin-top:20px;
+    font-size:56px;
+    font-weight:900;
+    background: linear-gradient(90deg, gold, orange, red);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 10px 25px rgba(255,215,0,0.6);
+    animation: float 2s infinite;
+    cursor:pointer;
+}
+
+.name:hover{
+    animation: shake 0.3s infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-4px);}
+    50%{transform:translateX(4px);}
+    75%{transform:translateX(-4px);}
+    100%{transform:translateX(0);}
+}
+
+.message{
+    margin-top:25px;
+    font-size:24px;
+    opacity:0;
+    animation: fadeUp 2s forwards;
+    animation-delay:1.8s;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* PHÁO HOA */
+.firework{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    animation: explode 1.8s forwards;
+}
+
+@keyframes explode{
+    0%{
+        transform:scale(0);
+        opacity:1;
+    }
+    100%{
+        transform:scale(12);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="title">Chúc Mừng Năm Mới 2026</div>
+    <div class="name">Anh Nguyễn Văn Thành</div>
+    <div class="message">
+        Chúc anh một năm mới thật nhiều sức khỏe,<br>
+        thành công rực rỡ, mọi điều hanh thông và luôn hạnh phúc 🎉  
+        <br><br>— Ken —
+    </div>
+</div>
+
+<script>
+function createFirework(){
+    const firework = document.createElement("div");
+    firework.className="firework";
+
+    firework.style.left = Math.random()*window.innerWidth + "px";
+    firework.style.top  = Math.random()*window.innerHeight + "px";
+    firework.style.background = 
+        `hsl(${Math.random()*360},100%,60%)`;
+
+    document.body.appendChild(firework);
+    setTimeout(()=>firework.remove(),1800);
+}
+
+setInterval(createFirework,220);
+</script>
+
+</body>
+</html>
